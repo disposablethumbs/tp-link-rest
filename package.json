@@ -1,0 +1,20 @@
+{
+  "name": "tp-link-rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "tplink-cloud-api": "^0.3.8"
+  },
+  "devDependencies": {
+    "dotenv": "^7.0.0"
+  }
+}
