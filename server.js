@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use('/static', express.static(path.join(__dirname, 'client/build')));
 
 const port = process.env.PORT || 4000;
 
@@ -41,11 +42,6 @@ app.get('/api/plugs', async (req, res) => {
 
 app.post('/api/plugs/login', (req, res) => {
     res.send({type: 'POST'});
-});
-
-app.get('*', (req, res) => {
-    console.log("index");
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 // list plugs
