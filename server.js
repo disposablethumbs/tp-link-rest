@@ -44,6 +44,7 @@ app.post('/api/plugs/login', (req, res) => {
 });
 
 app.get('*', (req, res) => {
+    console.log("index");
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
