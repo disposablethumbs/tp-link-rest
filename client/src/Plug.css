@@ -75,7 +75,7 @@ li {
     border-top: 0.5px solid gray;
 }
 
-#spinner { display: none; }
+div[id^="spinner"] { display: none; }
 
 .lds-ellipsis {
     display: inline-block;

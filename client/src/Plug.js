@@ -34,9 +34,10 @@ class Plug extends Component {
       .catch(err => console.log(err));
   };
 
-  activatePlug = (alias, action) => {
+  activatePlug = (index, alias, action) => {
     console.log('Activating ' + alias);
-    let spinner = document.getElementById("spinner");
+    
+    let spinner = document.getElementById("spinner-" + index);
     spinner.style.display = "block";
 
     fetch('api/plugs?alias=' + alias + '&action=' + action)
@@ -57,12 +58,12 @@ class Plug extends Component {
                     <span className="info">{plug.dev_name} - {plug.model}</span>
                     <span className="status">{status}<span className={status}></span></span>
                     <span className="buttons">
-                        <button type="button" onClick={(e) => this.activatePlug(plug.alias, 'power-on')}>POWER ON</button>
-                        <button type="button" onClick={(e) => this.activatePlug(plug.alias, 'power-off')}>POWER OFF</button>
-                        <button type="button" onClick={(e) => this.activatePlug(plug.alias, 'toggle')}>TOGGLE</button>
+                        <button type="button" onClick={(e) => this.activatePlug(index, plug.alias, 'power-on')}>POWER ON</button>
+                        <button type="button" onClick={(e) => this.activatePlug(index, plug.alias, 'power-off')}>POWER OFF</button>
+                        <button type="button" onClick={(e) => this.activatePlug(index, plug.alias, 'toggle')}>TOGGLE</button>
                     </span>
                     <span className="loader">
-                      <div id="spinner" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                      <div id={"spinner-" + index} className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                     </span>
                 </li>
             );
