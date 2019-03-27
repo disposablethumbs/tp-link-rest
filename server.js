@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-if (process.env.NODE_ENV !== 'production') app.use(express.static(path.join(__dirname, 'client/build')));
+if (process.env.NODE_ENV === 'production') app.use(express.static(path.join(__dirname, 'client/build')));
 
 const port = process.env.PORT || 4000;
 
@@ -45,7 +45,7 @@ app.post('/api/plugs/login', (req, res) => {
 });
 
 // Render the app
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'production') {
 app.get('/', function(req, res) {
     res.sendfile(path.join(__dirname, '/client/build/index.html'));
   });
