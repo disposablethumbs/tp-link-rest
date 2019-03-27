@@ -43,10 +43,6 @@ app.post('/api/plugs/login', (req, res) => {
     res.send({type: 'POST'});
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
-
 // list plugs
 async function getPlugsList() {
     // log in to cloud, return a connected tplink object
